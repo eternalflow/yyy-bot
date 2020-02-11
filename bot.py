@@ -94,19 +94,28 @@ def start(update, context):
 
 		password = uuid()
 		topup_info = push_topup(user_id, amount, password=password)
-		chat.send_message('We generated wallet for you. The password is in the next message')
-		user = User.get(tg_id=user_id)
-		chat.send_message(user.password)
+		chat.send_message("Hey. I will help you send money in chats.")
 		chat.send_message(
-			f'Need {topup_info["amount"]} more BIP for top up',
+			f'Give me some coins.',
 			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
-				f'Press for top up ({topup_info["amount"]}) BIP', url=topup_info['deeplink']
+				f'Press for top up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
 			)], [InlineKeyboardButton(
 				'Show wallet address', callback_data='address'
 			)], [InlineKeyboardButton('Start sending', switch_inline_query='')]
 		]))
 		return
-	chat.send_message('TODO::write help text')
+
+	password = uuid()
+	topup_info = push_topup(user_id, 10, password=password)
+	chat.send_message("Hey. I will help you send money in chats.")
+	chat.send_message(
+		f'Give me some coins.',
+		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
+			f'Press for top up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
+		)], [InlineKeyboardButton(
+			'Show wallet address', callback_data='address'
+		)], [InlineKeyboardButton('Start sending', switch_inline_query='')]
+		]))
 
 
 def help(update, context):
