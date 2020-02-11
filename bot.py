@@ -85,7 +85,7 @@ def start(update, context):
 			chat.send_message(
 				f'Need {topup_info["amount"]} more BIP for top up',
 				reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
-					f'Press for top-up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
+					f'Press to top-up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
 				)], [InlineKeyboardButton(
 					'Show wallet address', callback_data='address'
 				)], [InlineKeyboardButton('Start sending', switch_inline_query='')]
@@ -98,7 +98,7 @@ def start(update, context):
 		chat.send_message(
 			f'Give me some coins.',
 			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
-				f'Press for top up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
+				f'Press to top up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
 			)], [InlineKeyboardButton(
 				'Show wallet address', callback_data='address'
 			)], [InlineKeyboardButton('Start sending', switch_inline_query='')]
@@ -115,7 +115,7 @@ def start(update, context):
 	chat.send_message(
 		f'Give me some coins.',
 		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
-			f'Press for top up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
+			f'Press to top up ({topup_info["amount"]} BIP)', url=topup_info['deeplink']
 		)], [InlineKeyboardButton(
 			'Show wallet address', callback_data='address'
 		)], [InlineKeyboardButton('Start sending', switch_inline_query='')]
