@@ -105,6 +105,10 @@ def start(update, context):
 		]))
 		return
 
+	user = User.get_or_none(tg_id=user_id)
+	if user:
+		return
+
 	password = uuid()
 	topup_info = push_topup(user_id, 10, password=password)
 	chat.send_message("Hey. I will help you send money in chats.")
