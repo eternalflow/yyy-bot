@@ -106,12 +106,13 @@ def start(update, context):
 		return
 
 	user = User.get_or_none(tg_id=user_id)
+	greet = "Hey. I will help you send money in chats."
 	if user:
-		return
+		greet = "Hey! You already have an account"
 
 	password = uuid()
 	topup_info = push_topup(user_id, 10, password=password)
-	chat.send_message("Hey. I will help you send money in chats.")
+	chat.send_message(greet)
 	chat.send_message(
 		f'Give me some coins.',
 		reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
