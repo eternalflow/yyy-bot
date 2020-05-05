@@ -34,7 +34,7 @@ def get_balance(user):
 	existing = requests.post(
 		f'https://push.money/api/push/{user.push_id}/balance',
 		json={'password': user.password}).json()
-	available = existing['bip_value']
+	available = existing['balance']['bip_value']
 	return available
 
 
